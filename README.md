@@ -2,6 +2,8 @@
 
 [![Unit Test](https://github.com/sxzz/unplugin-combine/actions/workflows/unit-test.yml/badge.svg)](https://github.com/sxzz/unplugin-combine/actions/workflows/unit-test.yml)
 
+Unified plugin that combines other plugins into one plugin.
+
 ## Install
 
 ```bash
