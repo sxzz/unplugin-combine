@@ -65,11 +65,11 @@
     "eslint-define-config": "^1.6.0",
     "fast-glob": "^3.2.11",
     "prettier": "^2.7.1",
-    "rollup": "^2.78.0",
+    "rollup": "^2.78.1",
     "tsup": "^6.2.2",
     "typescript": "^4.7.4",
-    "vite": "^3.0.8",
-    "vitest": "^0.21.1",
+    "vite": "^3.0.9",
+    "vitest": "^0.22.1",
     "webpack": "^5.74.0"
   },
   "engines": {
