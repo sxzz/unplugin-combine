@@ -52,6 +52,9 @@
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"
   },
+  "dependencies": {
+    "unplugin": "^0.9.3"
+  },
   "devDependencies": {
     "@sxzz/eslint-config-prettier": "^2.4.1",
     "@sxzz/eslint-config-ts": "^2.4.1",
@@ -71,8 +74,5 @@
   },
   "engines": {
     "node": ">=14.19.0"
-  },
-  "dependencies": {
-    "unplugin": "^0.9.3"
   }
 }
