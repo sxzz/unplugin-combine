@@ -1,18 +1,20 @@
-import { sortPlugin } from '.'
-import type { EsbuildPlugin, EsbuildPluginList, Options } from '.'
+import { resolvePlugin } from '.'
+import type { EsbuildPlugin, Factory, FactoryOutput } from './types'
 
-export default ({
-  name,
-  plugins,
-}: Options<EsbuildPlugin, EsbuildPluginList>): EsbuildPlugin => {
-  return {
-    name,
-    setup(build) {
-      // TODO: supports with esbuild-plugin-transform
+export const getEsbuildPlugin = <UserOptions>(
+  factory: Factory<UserOptions>
+): FactoryOutput<UserOptions, EsbuildPlugin> => {
+  return (userOptions?: UserOptions): EsbuildPlugin => {
+    const { name, plugins } = factory(userOptions!)
+    return {
+      name,
+      setup(build) {
+        // TODO: supports with esbuild-plugin-transform
 
-      for (const { plugin } of sortPlugin(plugins)) {
-        plugin.setup(build)
-      }
-    },
+        for (const plugin of plugins) {
+          resolvePlugin(plugin, 'esbuild').setup(build)
+        }
+      },
+    }
   }
 }

@@ -1,24 +1,15 @@
 import path from 'node:path'
 import { expect, test } from 'vitest'
 import webpack from 'webpack'
-import Webpack from '../src/webpack'
-import type { Plugins, WebpackPlugin, WebpackPluginList } from '../src'
+import { createCombinePlugin } from '../src'
+import type { OptionsPlugin } from '../src'
 
 const orders: string[] = []
 
-const plugins: Plugins<WebpackPlugin, WebpackPluginList> = [
-  {
-    plugin: () => orders.push('post'),
-    order: 'post',
-  },
-  {
-    plugin: () => orders.push('pre1'),
-    order: 'pre',
-  },
-  {
-    plugin: () => orders.push('pre2'),
-    order: 'pre',
-  },
+const plugins: OptionsPlugin[] = [
+  () => orders.push('1'),
+  () => orders.push('2'),
+  () => orders.push('3'),
 ]
 
 const fixture = path.resolve(__dirname, 'fixtures')
@@ -29,10 +20,11 @@ test('webpack', async () => {
     mode: 'production',
     plugins: [
       () => orders.push('PRE'),
-      Webpack({
+      createCombinePlugin(() => ({
         name: 'webpack-combine',
         plugins,
-      }),
+      })).webpack(),
+      () => orders.push('POST'),
     ],
   })
   await new Promise<void>((resolve, reject) =>
@@ -42,9 +34,10 @@ test('webpack', async () => {
   expect(orders).toMatchInlineSnapshot(`
     [
       "PRE",
-      "pre1",
-      "pre2",
-      "post",
+      "1",
+      "2",
+      "3",
+      "POST",
     ]
   `)
 })

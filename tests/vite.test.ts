@@ -1,31 +1,26 @@
 import path from 'node:path'
 import { expect, test } from 'vitest'
 import { build } from 'vite'
-import Vite from '../src/vite'
-import type { Plugins, VitePlugin, VitePluginList } from '../src'
+import { createCombinePlugin } from '../src'
+import type { OptionsPlugin } from '../src'
 
 const orders: string[] = []
-const plugins: Plugins<VitePlugin, VitePluginList> = [
+
+const plugins = (prefix = ''): OptionsPlugin[] => [
   {
-    plugin: {
-      name: 'post',
-      buildStart: () => (orders.push('post'), undefined),
-    },
-    order: 'post',
+    name: `${prefix}1`,
+    // useless
+    enforce: 'pre',
+    transform: () => (orders.push(`${prefix}-pre`), undefined),
   },
   {
-    plugin: {
-      name: 'pre1',
-      buildStart: () => (orders.push('pre1'), undefined),
-    },
-    order: 'pre',
+    name: `${prefix}2`,
+    transform: () => (orders.push(`${prefix}-none`), undefined),
   },
   {
-    plugin: {
-      name: 'pre2',
-      buildStart: () => (orders.push('pre2'), undefined),
-    },
-    order: 'pre',
+    name: `${prefix}3`,
+    enforce: 'post',
+    transform: () => (orders.push(`${prefix}-post`), undefined),
   },
 ]
 
@@ -41,19 +36,49 @@ test('vite', async () => {
       },
     },
     plugins: [
-      { name: 'PRE', buildStart: () => (orders.push('PRE'), undefined) },
-      Vite({
-        name: 'vite-combine',
-        plugins,
-      }),
+      {
+        name: 'PRE',
+        enforce: 'pre',
+        transform: () => (orders.push('PRE'), undefined),
+      },
+
+      {
+        name: 'POST',
+        enforce: 'post',
+        transform: () => (orders.push('POST'), undefined),
+      },
+
+      createCombinePlugin(() => ({
+        name: 'vite-combine1',
+        enforce: 'post',
+        plugins: plugins('pre1'),
+      })).vite(),
+
+      createCombinePlugin(() => ({
+        name: 'vite-combine2',
+        enforce: 'pre',
+        plugins: plugins('pre2'),
+      })).vite(),
+
+      createCombinePlugin(() => ({
+        name: 'vite-combine3',
+        plugins: plugins('none'),
+      })).vite(),
     ],
   })
   expect(orders).toMatchInlineSnapshot(`
     [
-      "pre1",
-      "pre2",
       "PRE",
-      "post",
+      "pre2-pre",
+      "pre2-none",
+      "pre2-post",
+      "none-pre",
+      "none-none",
+      "none-post",
+      "POST",
+      "pre1-pre",
+      "pre1-none",
+      "pre1-post",
     ]
   `)
 })

@@ -1,57 +1,37 @@
-import type { Configuration } from 'webpack'
-import type { InputOptions, Plugin as RollupPlugin } from 'rollup'
-import type { Plugin as VitePlugin } from 'vite'
-import type { Plugin as EsbuildPlugin } from 'esbuild'
+import { getRollupPlugin } from './rollup'
+import { getVitePlugin } from './vite'
+import { getEsbuildPlugin } from './esbuild'
+import { getWebpackPlugin } from './webpack'
+import type { Factory, Plugin, PluginMap, PluginType, Unplugin } from './types'
 
-export function addPlugin<Plugin, PluginList extends Array<any>>(
-  pluginList: PluginList,
-  plugins: Plugins<Plugin, PluginList>
-) {
-  let preCount = 0
-  for (const { order, plugin } of plugins) {
-    let index = typeof order === 'function' ? order(pluginList as any) : order
+export * from './types'
 
-    if (index === 'post') {
-      pluginList.push(plugin)
-    } else if (index === 'pre') {
-      index = preCount
-      preCount++
-    }
-
-    if (typeof index === 'number') {
-      pluginList.splice(index, 0, plugin)
-    }
+export function resolvePlugin<T extends PluginType>(
+  plugin: Plugin | Unplugin<any>,
+  type: T
+): PluginMap[T] {
+  if (Array.isArray(plugin)) {
+    return plugin[0][type](plugin[1]) as any
+  } else {
+    return plugin as any
   }
 }
 
-export function sortPlugin<T extends Plugins<any, any>>(plugins: T): T {
-  return plugins.sort(({ order: a }, { order: b }) => {
-    if (a === b) return 0
-    else if (a === 'pre') return -1
-    else return 1
-  })
-}
-
-export type { RollupPlugin }
-export type RollupPluginList = InputOptions['plugins']
-
-export type { VitePlugin }
-export type VitePluginList = RollupPluginList
-
-export type { EsbuildPlugin }
-export type EsbuildPluginList = EsbuildPlugin[]
-
-export type WebpackPluginList = NonNullable<Configuration['plugins']>
-export type WebpackPlugin = WebpackPluginList extends Array<infer T> ? T : never
-
-export type Plugins<Plugin, PluginList> = {
-  plugin: Plugin
-  order: ((plugins: PluginList) => number | 'pre' | 'post') | 'pre' | 'post'
-}[]
-
-export interface Options<Plugin, PluginList> {
-  name: string
-  /** vite only */
-  enforce?: 'post' | 'pre' | undefined
-  plugins: Plugins<Plugin, PluginList>
+export const createCombinePlugin = <UserOptions>(
+  factory: Factory<UserOptions>
+) => {
+  return {
+    get rollup() {
+      return getRollupPlugin(factory)
+    },
+    get vite() {
+      return getVitePlugin(factory)
+    },
+    get esbuild() {
+      return getEsbuildPlugin(factory)
+    },
+    get webpack() {
+      return getWebpackPlugin(factory)
+    },
+  }
 }

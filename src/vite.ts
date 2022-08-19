@@ -1,13 +1,8 @@
-import Rollup from './rollup'
+import { getRollupPlugin } from './rollup'
 
-import type { Options, VitePlugin, VitePluginList } from '.'
+import type { Factory, FactoryOutput, VitePlugin } from './types'
 
-export default ({
-  enforce,
-  ...options
-}: Options<VitePlugin, VitePluginList>) => {
-  return {
-    ...Rollup(options as any),
-    enforce,
-  } as VitePlugin
-}
+export const getVitePlugin = <UserOptions>(
+  factory: Factory<UserOptions>
+): FactoryOutput<UserOptions, VitePlugin> =>
+  getRollupPlugin(factory, true) as any

@@ -1,38 +1,29 @@
 import path from 'node:path'
 import { expect, test } from 'vitest'
 import { build } from 'esbuild'
-import Esbuild from '../src/esbuild'
-import type { EsbuildPlugin, EsbuildPluginList, Plugins } from '../src'
+import { createCombinePlugin } from '../src'
+import type { OptionsPlugin } from '../src'
 
 const orders: string[] = []
 
-const plugins: Plugins<EsbuildPlugin, EsbuildPluginList> = [
+const plugins: OptionsPlugin[] = [
   {
-    plugin: {
-      name: 'post',
-      setup(build) {
-        build.onStart(() => (orders.push('post'), undefined))
-      },
+    name: '1',
+    setup(build) {
+      build.onStart(() => (orders.push('1'), undefined))
     },
-    order: 'post',
   },
   {
-    plugin: {
-      name: 'preA',
-      setup(build) {
-        build.onStart(() => (orders.push('pre1'), undefined))
-      },
+    name: '2',
+    setup(build) {
+      build.onStart(() => (orders.push('2'), undefined))
     },
-    order: 'pre',
   },
   {
-    plugin: {
-      name: 'preB',
-      setup(build) {
-        build.onStart(() => (orders.push('pre2'), undefined))
-      },
+    name: '3',
+    setup(build) {
+      build.onStart(() => (orders.push('3'), undefined))
     },
-    order: 'pre',
   },
 ]
 
@@ -52,18 +43,18 @@ test('esbuild', async () => {
           })
         },
       },
-      Esbuild({
+      createCombinePlugin(() => ({
         name: 'esbuild-combine',
         plugins,
-      }),
+      })).esbuild(),
     ],
   })
   expect(orders).toMatchInlineSnapshot(`
     [
       "PRE",
-      "pre1",
-      "pre2",
-      "post",
+      "1",
+      "2",
+      "3",
     ]
   `)
 })

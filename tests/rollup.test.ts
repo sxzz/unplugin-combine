@@ -1,32 +1,23 @@
 import path from 'node:path'
 import { expect, test } from 'vitest'
 import { rollup } from 'rollup'
-import Rollup from '../src/rollup'
-import type { Plugins, RollupPlugin, RollupPluginList } from '../src'
+import { createCombinePlugin } from '../src'
+import type { OptionsPlugin } from '../src'
 
 const orders: string[] = []
 
-const plugins: Plugins<RollupPlugin, RollupPluginList> = [
+const plugins: OptionsPlugin[] = [
   {
-    plugin: {
-      name: 'post',
-      buildStart: () => (orders.push('post'), undefined),
-    },
-    order: 'post',
+    name: '1',
+    buildStart: () => (orders.push('1'), undefined),
   },
   {
-    plugin: {
-      name: 'pre1',
-      buildStart: () => (orders.push('pre1'), undefined),
-    },
-    order: 'pre',
+    name: '2',
+    buildStart: () => (orders.push('2'), undefined),
   },
   {
-    plugin: {
-      name: 'pre2',
-      buildStart: () => (orders.push('pre2'), undefined),
-    },
-    order: 'pre',
+    name: '3',
+    buildStart: () => (orders.push('3'), undefined),
   },
 ]
 
@@ -38,19 +29,21 @@ test('rollup', async () => {
     treeshake: false,
     plugins: [
       { name: 'PRE', buildStart: () => (orders.push('PRE'), undefined) },
-      Rollup({
+      createCombinePlugin(() => ({
         name: 'rollup-combine',
         plugins,
-      }),
+      })).rollup(),
+      { name: 'POST', buildStart: () => (orders.push('POST'), undefined) },
     ],
   })
 
   expect(orders).toMatchInlineSnapshot(`
     [
-      "pre1",
-      "pre2",
       "PRE",
-      "post",
+      "1",
+      "2",
+      "3",
+      "POST",
     ]
   `)
 })
