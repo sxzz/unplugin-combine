@@ -1,8 +1,11 @@
-import { getRollupPlugin } from './rollup'
-
+import { resolvePlugin } from '.'
 import type { Factory, FactoryOutput, VitePlugin } from './types'
 
 export const getVitePlugin = <UserOptions>(
   factory: Factory<UserOptions>
-): FactoryOutput<UserOptions, VitePlugin> =>
-  getRollupPlugin(factory, true) as any
+): FactoryOutput<UserOptions, VitePlugin[]> => {
+  return (userOptions?: UserOptions) => {
+    const { plugins } = factory(userOptions!)
+    return plugins.map((plugin) => resolvePlugin(plugin, 'vite'))
+  }
+}

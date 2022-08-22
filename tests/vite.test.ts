@@ -48,19 +48,19 @@ test('vite', async () => {
         transform: () => (orders.push('POST'), undefined),
       },
 
-      createCombinePlugin(() => ({
+      ...createCombinePlugin(() => ({
         name: 'vite-combine1',
         enforce: 'post',
         plugins: plugins('pre1'),
       })).vite(),
 
-      createCombinePlugin(() => ({
+      ...createCombinePlugin(() => ({
         name: 'vite-combine2',
         enforce: 'pre',
         plugins: plugins('pre2'),
       })).vite(),
 
-      createCombinePlugin(() => ({
+      ...createCombinePlugin(() => ({
         name: 'vite-combine3',
         plugins: plugins('none'),
       })).vite(),
@@ -69,16 +69,16 @@ test('vite', async () => {
   expect(orders).toMatchInlineSnapshot(`
     [
       "PRE",
-      "pre2-pre",
-      "pre2-none",
-      "pre2-post",
-      "none-pre",
-      "none-none",
-      "none-post",
-      "POST",
       "pre1-pre",
+      "pre2-pre",
+      "none-pre",
       "pre1-none",
+      "pre2-none",
+      "none-none",
+      "POST",
       "pre1-post",
+      "pre2-post",
+      "none-post",
     ]
   `)
 })
