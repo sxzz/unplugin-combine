@@ -48,19 +48,19 @@ test('vite', async () => {
         transform: () => (orders.push('POST'), undefined),
       },
 
-      ...createCombinePlugin(() => ({
+      createCombinePlugin(() => ({
         name: 'vite-combine1',
         enforce: 'post',
         plugins: plugins('pre1'),
       })).vite(),
 
-      ...createCombinePlugin(() => ({
+      createCombinePlugin(() => ({
         name: 'vite-combine2',
         enforce: 'pre',
         plugins: plugins('pre2'),
       })).vite(),
 
-      ...createCombinePlugin(() => ({
+      createCombinePlugin(() => ({
         name: 'vite-combine3',
         plugins: plugins('none'),
       })).vite(),
