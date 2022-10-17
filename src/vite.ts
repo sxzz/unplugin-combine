@@ -1,9 +1,9 @@
 import { resolvePlugin } from '.'
-import type { Factory, FactoryOutput, VitePlugin } from './types'
+import type { Factory, UnpluginCombineInstance } from './types'
 
 export const getVitePlugin = <UserOptions>(
   factory: Factory<UserOptions>
-): FactoryOutput<UserOptions, VitePlugin[]> => {
+): UnpluginCombineInstance<UserOptions>['vite'] => {
   return (userOptions?: UserOptions) => {
     const { plugins } = factory(userOptions!)
     return plugins.map((plugin) => resolvePlugin(plugin, 'vite'))

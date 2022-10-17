@@ -38,3 +38,11 @@ export interface CombineOptions {
   enforce?: 'post' | 'pre' | undefined
   plugins: OptionsPlugin[]
 }
+
+export interface UnpluginCombineInstance<UserOptions> {
+  rollup: FactoryOutput<UserOptions, RollupPlugin[]>
+  webpack: FactoryOutput<UserOptions, WebpackPlugin>
+  vite: FactoryOutput<UserOptions, VitePlugin[]>
+  esbuild: FactoryOutput<UserOptions, EsbuildPlugin>
+  raw: Factory<UserOptions>
+}

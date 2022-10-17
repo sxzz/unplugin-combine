@@ -2,7 +2,14 @@ import { getRollupPlugin } from './rollup'
 import { getVitePlugin } from './vite'
 import { getEsbuildPlugin } from './esbuild'
 import { getWebpackPlugin } from './webpack'
-import type { Factory, Plugin, PluginMap, PluginType, Unplugin } from './types'
+import type {
+  Factory,
+  Plugin,
+  PluginMap,
+  PluginType,
+  Unplugin,
+  UnpluginCombineInstance,
+} from './types'
 
 export * from './types'
 
@@ -19,7 +26,7 @@ export function resolvePlugin<T extends PluginType>(
 
 export const createCombinePlugin = <UserOptions>(
   factory: Factory<UserOptions>
-) => {
+): UnpluginCombineInstance<UserOptions> => {
   return {
     get rollup() {
       return getRollupPlugin(factory)
@@ -32,6 +39,9 @@ export const createCombinePlugin = <UserOptions>(
     },
     get webpack() {
       return getWebpackPlugin(factory)
+    },
+    get raw() {
+      return factory
     },
   }
 }
