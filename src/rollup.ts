@@ -2,9 +2,9 @@ import { resolvePlugin } from '.'
 import type {
   CombineOptions,
   Factory,
-  FactoryOutput,
   RollupPlugin,
   RollupPluginList,
+  UnpluginCombineInstance,
   VitePlugin,
 } from './types'
 
@@ -24,7 +24,7 @@ export function addPlugin(
 export const getRollupPlugin = <UserOptions>(
   factory: Factory<UserOptions>,
   vite = false
-): FactoryOutput<UserOptions, RollupPlugin> => {
+): UnpluginCombineInstance<UserOptions>['rollup'] => {
   return (userOptions?: UserOptions) => {
     const { name, enforce, plugins } = factory(userOptions!)
 
