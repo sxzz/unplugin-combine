@@ -5,6 +5,7 @@ import type { Plugin as VitePlugin } from 'vite'
 import type { Plugin as EsbuildPlugin } from 'esbuild'
 
 export type { RollupPlugin, VitePlugin, EsbuildPlugin }
+
 export type WebpackPlugin = NonNullable<Configuration['plugins']> extends Array<
   infer T
 >
@@ -27,16 +28,16 @@ export type FactoryOutput<UserOptions, Return> = [never] extends UserOptions
   ? (options?: UserOptions) => Return
   : (options: UserOptions) => Return
 
-export type Unplugin<UserOptions> = [
-  instance: UnpluginInstance<UserOptions>,
-  options: UserOptions
-]
-export type OptionsPlugin = Plugin | Unplugin<any>
+export type Unplugin<UserOptions> = {
+  instance: UnpluginInstance<UserOptions> | UnpluginCombineInstance<any>
+  options?: UserOptions
+}
+export type OptionsPlugin = Plugin | Unplugin<any> | OptionsPlugin[]
 export interface CombineOptions {
   name: string
   /** vite only */
   enforce?: 'post' | 'pre' | undefined
-  plugins: OptionsPlugin[]
+  plugins: OptionsPlugin
 }
 
 export interface UnpluginCombineInstance<UserOptions> {

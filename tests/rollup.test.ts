@@ -6,7 +6,7 @@ import type { OptionsPlugin } from '../src'
 
 const orders: string[] = []
 
-const plugins: OptionsPlugin[] = [
+const plugins: (OptionsPlugin | OptionsPlugin[])[] = [
   {
     name: '1',
     buildStart: () => (orders.push('1'), undefined),
@@ -15,9 +15,29 @@ const plugins: OptionsPlugin[] = [
     name: '2',
     buildStart: () => (orders.push('2'), undefined),
   },
+  createCombinePlugin(() => ({
+    name: 'rollup-combine',
+    plugins: [
+      {
+        name: '3',
+        buildStart: () => (orders.push('3'), undefined),
+      },
+    ],
+  })).rollup(),
   {
-    name: '3',
-    buildStart: () => (orders.push('3'), undefined),
+    instance: createCombinePlugin(() => ({
+      name: 'rollup-combine',
+      plugins: [
+        [
+          [
+            {
+              name: '4',
+              buildStart: () => (orders.push('4'), undefined),
+            },
+          ],
+        ],
+      ],
+    })),
   },
 ]
 
@@ -43,6 +63,7 @@ test('rollup', async () => {
       "1",
       "2",
       "3",
+      "4",
       "POST",
     ]
   `)

@@ -1,4 +1,4 @@
-import { resolvePlugin } from '.'
+import { resolvePlugins } from './index'
 import type { Factory, UnpluginCombineInstance } from './types'
 
 export const getRollupPlugin = <UserOptions>(
@@ -6,6 +6,6 @@ export const getRollupPlugin = <UserOptions>(
 ): UnpluginCombineInstance<UserOptions>['rollup'] => {
   return (userOptions?: UserOptions) => {
     const { plugins } = factory(userOptions!)
-    return plugins.map((plugin) => resolvePlugin(plugin, 'rollup'))
+    return resolvePlugins(plugins, 'rollup')
   }
 }

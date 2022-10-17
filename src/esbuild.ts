@@ -1,4 +1,4 @@
-import { resolvePlugin } from '.'
+import { resolvePlugins } from '.'
 import type { EsbuildPlugin, Factory, UnpluginCombineInstance } from './types'
 
 export const getEsbuildPlugin = <UserOptions>(
@@ -11,8 +11,8 @@ export const getEsbuildPlugin = <UserOptions>(
       setup(build) {
         // TODO: supports with esbuild-plugin-transform
 
-        for (const plugin of plugins) {
-          resolvePlugin(plugin, 'esbuild').setup(build)
+        for (const plugin of resolvePlugins(plugins, 'esbuild')) {
+          plugin.setup(build)
         }
       },
     }

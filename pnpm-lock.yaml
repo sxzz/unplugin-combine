@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@antfu/utils': ^0.5.2
   '@sxzz/eslint-config-prettier': ^2.4.4
   '@sxzz/eslint-config-ts': ^2.4.4
   '@types/node': '*'
@@ -19,6 +20,7 @@ specifiers:
   webpack: ^5.74.0
 
 dependencies:
+  '@antfu/utils': 0.5.2
   unplugin: 0.9.6
 
 devDependencies:
@@ -39,6 +41,10 @@ devDependencies:
   webpack: 5.74.0_esbuild@0.15.11
 
 packages:
+
+  /@antfu/utils/0.5.2:
+    resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
+    dev: false
 
   /@babel/code-frame/7.18.6:
     resolution: {integrity: sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==}
