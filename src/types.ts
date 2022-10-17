@@ -1,13 +1,10 @@
 import type { UnpluginInstance } from 'unplugin'
 import type { Configuration } from 'webpack'
-import type { InputOptions, Plugin as RollupPlugin } from 'rollup'
+import type { Plugin as RollupPlugin } from 'rollup'
 import type { Plugin as VitePlugin } from 'vite'
 import type { Plugin as EsbuildPlugin } from 'esbuild'
 
-export type RollupPluginList = NonNullable<InputOptions['plugins']>
-export type { RollupPlugin }
-export type { VitePlugin }
-export type { EsbuildPlugin }
+export type { RollupPlugin, VitePlugin, EsbuildPlugin }
 export type WebpackPlugin = NonNullable<Configuration['plugins']> extends Array<
   infer T
 >
