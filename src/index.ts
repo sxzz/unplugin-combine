@@ -1,27 +1,38 @@
+import { toArray } from '@antfu/utils'
 import { getRollupPlugin } from './rollup'
 import { getVitePlugin } from './vite'
 import { getEsbuildPlugin } from './esbuild'
 import { getWebpackPlugin } from './webpack'
 import type {
   Factory,
-  Plugin,
+  OptionsPlugin,
   PluginMap,
   PluginType,
-  Unplugin,
   UnpluginCombineInstance,
 } from './types'
-
 export * from './types'
 
 export function resolvePlugin<T extends PluginType>(
-  plugin: Plugin | Unplugin<any>,
+  plugin: OptionsPlugin,
   type: T
-): PluginMap[T] {
-  if (Array.isArray(plugin)) {
-    return plugin[0][type](plugin[1]) as any
-  } else {
-    return plugin as any
-  }
+): Array<PluginMap[T]> {
+  const result = Array.isArray(plugin)
+    ? toArray(plugin[0][type](plugin[1]))
+    : [plugin]
+
+  return result.flatMap((plugin) => {
+    if ('combinedPlugins' in plugin) {
+      return plugin.combinedPlugins
+    }
+    return plugin
+  })
+}
+
+export function resolvePlugins<T extends PluginType>(
+  plugins: OptionsPlugin[],
+  type: T
+): Array<PluginMap[T]> {
+  return plugins.flatMap((plugin) => resolvePlugin(plugin, type))
 }
 
 export const createCombinePlugin = <UserOptions>(

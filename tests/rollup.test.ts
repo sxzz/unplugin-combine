@@ -2,11 +2,11 @@ import path from 'node:path'
 import { expect, test } from 'vitest'
 import { rollup } from 'rollup'
 import { createCombinePlugin } from '../src'
-import type { OptionsPlugin } from '../src'
+import type { OptionsPlugin, UnpluginCombineInstance } from '../src'
 
 const orders: string[] = []
 
-const plugins: OptionsPlugin[] = [
+const plugins: (OptionsPlugin | UnpluginCombineInstance<any>)[] = [
   {
     name: '1',
     buildStart: () => (orders.push('1'), undefined),
@@ -15,10 +15,27 @@ const plugins: OptionsPlugin[] = [
     name: '2',
     buildStart: () => (orders.push('2'), undefined),
   },
-  {
-    name: '3',
-    buildStart: () => (orders.push('3'), undefined),
-  },
+  createCombinePlugin(() => ({
+    name: 'rollup-combine',
+    plugins: [
+      {
+        name: '3',
+        buildStart: () => (orders.push('3'), undefined),
+      },
+    ],
+  })).rollup(),
+  [
+    createCombinePlugin(() => ({
+      name: 'rollup-combine',
+      plugins: [
+        {
+          name: '4',
+          buildStart: () => (orders.push('4'), undefined),
+        },
+      ],
+    })),
+    undefined,
+  ],
 ]
 
 const fixture = path.resolve(__dirname, 'fixtures')
@@ -43,6 +60,7 @@ test('rollup', async () => {
       "1",
       "2",
       "3",
+      "4",
       "POST",
     ]
   `)

@@ -1,11 +1,11 @@
 import type { UnpluginInstance } from 'unplugin'
 import type { Configuration } from 'webpack'
-import type { InputOptions, Plugin as RollupPlugin } from 'rollup'
+import type { InputOptions, Plugin as _RollupPlugin } from 'rollup'
 import type { Plugin as VitePlugin } from 'vite'
 import type { Plugin as EsbuildPlugin } from 'esbuild'
 
 export type RollupPluginList = NonNullable<InputOptions['plugins']>
-export type { RollupPlugin }
+export type RollupPlugin = _RollupPlugin & { combinedPlugins: RollupPlugin[] }
 export type { VitePlugin }
 export type { EsbuildPlugin }
 export type WebpackPlugin = NonNullable<Configuration['plugins']> extends Array<
@@ -31,10 +31,13 @@ export type FactoryOutput<UserOptions, Return> = [never] extends UserOptions
   : (options: UserOptions) => Return
 
 export type Unplugin<UserOptions> = [
-  instance: UnpluginInstance<UserOptions>,
+  instance: UnpluginInstance<UserOptions> | UnpluginCombineInstance<any>,
   options: UserOptions
 ]
-export type OptionsPlugin = Plugin | Unplugin<any>
+export type OptionsPlugin =
+  | Plugin
+  | Unplugin<any>
+  | UnpluginCombineInstance<any>
 export interface CombineOptions {
   name: string
   /** vite only */

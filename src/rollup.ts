@@ -1,6 +1,5 @@
-import { resolvePlugin } from '.'
+import { resolvePlugins } from '.'
 import type {
-  CombineOptions,
   Factory,
   RollupPlugin,
   RollupPluginList,
@@ -11,14 +10,10 @@ import type {
 export function addPlugin(
   name: string,
   pluginList: RollupPluginList,
-  plugins: CombineOptions['plugins']
+  plugins: RollupPlugin[]
 ) {
-  const resolvedPlugins = plugins.map((plugin) =>
-    resolvePlugin(plugin, 'rollup')
-  )
-
   const index = pluginList.findIndex((plugin) => plugin && plugin.name === name)
-  pluginList.splice(index + 1, 0, ...resolvedPlugins)
+  pluginList.splice(index + 1, 0, ...plugins)
 }
 
 export const getRollupPlugin = <UserOptions>(
@@ -28,12 +23,15 @@ export const getRollupPlugin = <UserOptions>(
   return (userOptions?: UserOptions) => {
     const { name, enforce, plugins } = factory(userOptions!)
 
+    const resolvedPlugins = resolvePlugins(plugins, 'rollup')
+
     const plugin: RollupPlugin = {
       name,
       options(options) {
         options.plugins ||= []
-        addPlugin(name, options.plugins, plugins)
+        addPlugin(name, options.plugins, resolvedPlugins)
       },
+      combinedPlugins: resolvedPlugins,
     }
 
     if (vite) {
