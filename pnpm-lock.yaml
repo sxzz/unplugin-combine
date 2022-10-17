@@ -10,8 +10,8 @@ specifiers:
   eslint-define-config: ^1.7.0
   fast-glob: ^3.2.12
   prettier: ^2.7.1
-  rollup: ^2.79.1
-  tsup: ^6.2.3
+  rollup: ^3.2.2
+  tsup: ^6.3.0
   typescript: ^4.8.4
   unplugin: ^0.9.6
   vite: ^3.1.8
@@ -31,8 +31,8 @@ devDependencies:
   eslint-define-config: 1.7.0
   fast-glob: 3.2.12
   prettier: 2.7.1
-  rollup: 2.79.1
-  tsup: 6.2.3_typescript@4.8.4
+  rollup: 3.2.2
+  tsup: 6.3.0_typescript@4.8.4
   typescript: 4.8.4
   vite: 3.1.8
   vitest: 0.24.3
@@ -701,6 +701,11 @@ packages:
 
   /cac/6.7.12:
     resolution: {integrity: sha512-rM7E2ygtMkJqD9c7WnFU6fruFcN3xe4FM5yUmgxhZzIKJk4uHl9U/fhwdajGFQbQuv43FAUo1Fe8gX/oIKDeSA==}
+    engines: {node: '>=8'}
+    dev: true
+
+  /cac/6.7.14:
+    resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
     engines: {node: '>=8'}
     dev: true
 
@@ -2588,6 +2593,14 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /rollup/3.2.2:
+    resolution: {integrity: sha512-tw8NITEB/A8aa8F+mmIJ7fQ7Abej0R9ugR1ZzsCqb7P8HWVIVdneN69BMTDjhk0qbUsewDSJSDTcVuCTogs8JA==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -2767,8 +2780,8 @@ packages:
       acorn: 8.8.0
     dev: true
 
-  /sucrase/3.25.0:
-    resolution: {integrity: sha512-WxTtwEYXSmZArPGStGBicyRsg5TBEFhT5b7N+tF+zauImP0Acy+CoUK0/byJ8JNPK/5lbpWIVuFagI4+0l85QQ==}
+  /sucrase/3.28.0:
+    resolution: {integrity: sha512-TK9600YInjuiIhVM3729rH4ZKPOsGeyXUwY+Ugu9eilNbdTFyHr6XcAGYbRVZPDgWj6tgI7bx95aaJjHnbffag==}
     engines: {node: '>=8'}
     hasBin: true
     dependencies:
@@ -2912,8 +2925,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tsup/6.2.3_typescript@4.8.4:
-    resolution: {integrity: sha512-J5Pu2Dx0E1wlpIEsVFv9ryzP1pZ1OYsJ2cBHZ7GrKteytNdzaSz5hmLX7/nAxtypq+jVkVvA79d7S83ETgHQ5w==}
+  /tsup/6.3.0_typescript@4.8.4:
+    resolution: {integrity: sha512-IaNQO/o1rFgadLhNonVKNCT2cks+vvnWX3DnL8sB87lBDqRvJXHENr5lSPJlqwplUlDxSwZK8dSg87rgBu6Emw==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
@@ -2929,7 +2942,7 @@ packages:
         optional: true
     dependencies:
       bundle-require: 3.1.0_esbuild@0.15.11
-      cac: 6.7.12
+      cac: 6.7.14
       chokidar: 3.5.3
       debug: 4.3.4
       esbuild: 0.15.11
@@ -2940,7 +2953,7 @@ packages:
       resolve-from: 5.0.0
       rollup: 2.79.1
       source-map: 0.8.0-beta.0
-      sucrase: 3.25.0
+      sucrase: 3.28.0
       tree-kill: 1.2.2
       typescript: 4.8.4
     transitivePeerDependencies:
