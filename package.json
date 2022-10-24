@@ -4,12 +4,20 @@
   "packageManager": "pnpm@7.14.0",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "license": "MIT",
+  "homepage": "https://github.com/sxzz/unplugin-combine#readme",
+  "bugs": {
+    "url": "https://github.com/sxzz/unplugin-combine/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxzz/unplugin-combine.git"
+  },
   "files": [
     "dist"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "index.d.ts",
+  "types": "./index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
