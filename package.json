@@ -74,17 +74,17 @@
     }
   },
   "dependencies": {
-    "@antfu/utils": "^0.5.2",
-    "unplugin": "^0.9.6"
+    "@antfu/utils": "^0.6.0",
+    "unplugin": "^0.10.2"
   },
   "devDependencies": {
     "@sxzz/eslint-config-prettier": "^2.4.4",
     "@sxzz/eslint-config-ts": "^2.4.4",
     "@types/node": "*",
     "bumpp": "^8.2.1",
-    "esbuild": "^0.15.11",
-    "eslint": "^8.25.0",
-    "eslint-define-config": "^1.7.0",
+    "esbuild": "^0.15.12",
+    "eslint": "^8.26.0",
+    "eslint-define-config": "^1.8.0",
     "fast-glob": "^3.2.12",
     "prettier": "^2.7.1",
     "rollup": "^2.79.1",
