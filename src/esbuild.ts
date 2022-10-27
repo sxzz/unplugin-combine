@@ -1,5 +1,5 @@
 import { resolvePlugins } from '.'
-import type { EsbuildPlugin, Factory, UnpluginCombineInstance } from './types'
+import type { EsbuildPlugin, Factory, UnpluginCombineInstance } from '.'
 
 export const getEsbuildPlugin = <UserOptions>(
   factory: Factory<UserOptions>

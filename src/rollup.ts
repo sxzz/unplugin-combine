@@ -5,7 +5,7 @@ import type {
   RollupPluginList,
   UnpluginCombineInstance,
   VitePlugin,
-} from './types'
+} from '.'
 
 export function addPlugin(
   name: string,

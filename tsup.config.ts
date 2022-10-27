@@ -6,5 +6,5 @@ export default defineConfig({
   target: 'node14',
   splitting: true,
   clean: true,
-  dts: false,
+  dts: true,
 })
