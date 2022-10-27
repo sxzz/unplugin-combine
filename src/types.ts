@@ -48,4 +48,5 @@ export interface UnpluginCombineInstance<UserOptions> {
   vite: FactoryOutput<UserOptions, VitePlugin[]>
   esbuild: FactoryOutput<UserOptions, EsbuildPlugin>
   raw: Factory<UserOptions>
+  plugins: FactoryOutput<UserOptions, OptionsPlugin>
 }

@@ -3,6 +3,7 @@ import { getRollupPlugin } from './rollup'
 import { getVitePlugin } from './vite'
 import { getEsbuildPlugin } from './esbuild'
 import { getWebpackPlugin } from './webpack'
+import { getPluginList } from './plugins'
 import type {
   Factory,
   OptionsPlugin,
@@ -51,6 +52,9 @@ export const createCombinePlugin = <UserOptions>(
     },
     get raw() {
       return factory
+    },
+    get plugins() {
+      return getPluginList(factory)
     },
   }
 }
