@@ -48,7 +48,7 @@
   "scripts": {
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.json,.md",
     "lint:fix": "pnpm run lint --fix",
-    "build": "tsup",
+    "build": "tsup && tsc -p tsconfig.lib.json --declaration --emitDeclarationOnly",
     "test": "vitest",
     "release": "bumpp && pnpm publish",
     "prepublishOnly": "pnpm run build"
