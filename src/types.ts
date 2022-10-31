@@ -29,7 +29,9 @@ export type FactoryOutput<UserOptions, Return> = [never] extends UserOptions
   : (options: UserOptions) => Return
 
 export type Unplugin<UserOptions> = {
-  instance: UnpluginInstance<UserOptions> | UnpluginCombineInstance<any>
+  instance:
+    | UnpluginInstance<UserOptions, boolean>
+    | UnpluginCombineInstance<any>
   options?: UserOptions
 }
 export type OptionsPlugin = Plugin | Unplugin<any> | OptionsPlugin[]
