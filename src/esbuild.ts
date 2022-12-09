@@ -5,7 +5,7 @@ export const getEsbuildPlugin = <UserOptions>(
   factory: Factory<UserOptions>
 ): UnpluginCombineInstance<UserOptions>['esbuild'] => {
   return (userOptions?: UserOptions): EsbuildPlugin => {
-    const { name, plugins } = factory(userOptions!)
+    const { name, plugins } = factory(userOptions!, { framework: 'esbuild' })
     return {
       name,
       setup(build) {

@@ -5,7 +5,7 @@ export const getRollupPlugin = <UserOptions>(
   factory: Factory<UserOptions>
 ): UnpluginCombineInstance<UserOptions>['rollup'] => {
   return (userOptions?: UserOptions) => {
-    const { plugins } = factory(userOptions!)
+    const { plugins } = factory(userOptions!, { framework: 'rollup' })
     return resolvePlugins(plugins, 'rollup')
   }
 }

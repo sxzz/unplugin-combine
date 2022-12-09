@@ -21,7 +21,10 @@ export interface PluginMap {
 export type PluginType = keyof PluginMap
 export type Plugin = PluginMap[PluginType]
 
-export type Factory<UserOptions> = (userOptions: UserOptions) => CombineOptions
+export type Factory<UserOptions> = (
+  userOptions: UserOptions,
+  meta: { framework?: PluginType }
+) => CombineOptions
 export type FactoryOutput<UserOptions, Return> = [never] extends UserOptions
   ? () => Return
   : undefined extends UserOptions

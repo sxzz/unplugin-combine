@@ -6,7 +6,7 @@ export const getWebpackPlugin = <UserOptions>(
   factory: Factory<UserOptions>
 ): UnpluginCombineInstance<UserOptions>['webpack'] => {
   return (userOptions?: UserOptions) => {
-    const { plugins } = factory(userOptions!)
+    const { plugins } = factory(userOptions!, { framework: 'webpack' })
 
     return (compiler: Compiler) => {
       for (const plugin of resolvePlugins(plugins, 'webpack')) {
