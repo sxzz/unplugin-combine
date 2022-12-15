@@ -1,6 +1,6 @@
 {
   "name": "unplugin-combine",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "packageManager": "pnpm@7.18.1",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "license": "MIT",
