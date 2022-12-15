@@ -11,7 +11,7 @@ export const getWebpackPlugin = <UserOptions>(
     return (compiler: Compiler) => {
       for (const plugin of resolvePlugins(plugins, 'webpack')) {
         if (typeof plugin === 'object') {
-          plugin.apply.bind(compiler, compiler)
+          plugin.apply.call(compiler, compiler)
         } else {
           plugin.call(compiler, compiler)
         }
