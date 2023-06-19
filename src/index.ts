@@ -10,6 +10,7 @@ import type {
   Plugin,
   PluginMap,
   PluginType,
+  RemoveFalsy,
   Unplugin,
   UnpluginCombineInstance,
 } from './types'
@@ -22,9 +23,9 @@ function flatPlugins(plugins: OptionsPlugin): (Plugin | Unplugin<any>)[] {
 export function resolvePlugins<T extends PluginType>(
   plugins: OptionsPlugin,
   type: T
-): Array<PluginMap[T]> {
+): Array<RemoveFalsy<PluginMap[T]>> {
   return flatPlugins(plugins)
-    .filter(Boolean)
+    .filter((p): p is RemoveFalsy<Plugin | Unplugin<any>> => !!p)
     .map((plugin) => {
       if ('instance' in plugin) {
         const { instance, options } = plugin as Unplugin<any>

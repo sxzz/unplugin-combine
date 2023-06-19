@@ -20,6 +20,7 @@ export interface PluginMap {
 }
 export type PluginType = keyof PluginMap
 export type Plugin = PluginMap[PluginType]
+export type RemoveFalsy<T> = Exclude<T, false | '' | 0 | null | undefined>
 
 export type Factory<UserOptions> = (
   userOptions: UserOptions,
