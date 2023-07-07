@@ -1,8 +1,7 @@
 import path from 'node:path'
 import { expect, test } from 'vitest'
 import { rollup } from 'rollup'
-import { createCombinePlugin } from '../src'
-import type { OptionsPlugin } from '../src'
+import { type OptionsPlugin, createCombinePlugin } from '../src'
 
 const orders: string[] = []
 

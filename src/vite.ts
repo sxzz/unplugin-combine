@@ -1,5 +1,5 @@
+import { type Factory, type UnpluginCombineInstance } from './types'
 import { resolvePlugins } from '.'
-import type { Factory, UnpluginCombineInstance } from './types'
 
 export const getVitePlugin = <UserOptions>(
   factory: Factory<UserOptions>

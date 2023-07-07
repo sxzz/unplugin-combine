@@ -1,8 +1,8 @@
-import type { UnpluginInstance } from 'unplugin'
-import type { Configuration } from 'webpack'
-import type { Plugin as RollupPlugin } from 'rollup'
-import type { Plugin as VitePlugin } from 'vite'
-import type { Plugin as EsbuildPlugin } from 'esbuild'
+import { type UnpluginInstance } from 'unplugin'
+import { type Configuration } from 'webpack'
+import { type Plugin as RollupPlugin } from 'rollup'
+import { type Plugin as VitePlugin } from 'vite'
+import { type Plugin as EsbuildPlugin } from 'esbuild'
 
 export type { RollupPlugin, VitePlugin, EsbuildPlugin }
 

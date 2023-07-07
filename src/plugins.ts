@@ -1,4 +1,4 @@
-import type { Factory, UnpluginCombineInstance } from '.'
+import { type Factory, type UnpluginCombineInstance } from '.'
 
 export const getPluginList = <UserOptions>(
   factory: Factory<UserOptions>

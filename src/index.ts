@@ -4,15 +4,15 @@ import { getVitePlugin } from './vite'
 import { getEsbuildPlugin } from './esbuild'
 import { getWebpackPlugin } from './webpack'
 import { getPluginList } from './plugins'
-import type {
-  Factory,
-  OptionsPlugin,
-  Plugin,
-  PluginMap,
-  PluginType,
-  RemoveFalsy,
-  Unplugin,
-  UnpluginCombineInstance,
+import {
+  type Factory,
+  type OptionsPlugin,
+  type Plugin,
+  type PluginMap,
+  type PluginType,
+  type RemoveFalsy,
+  type Unplugin,
+  type UnpluginCombineInstance,
 } from './types'
 export * from './types'
 
