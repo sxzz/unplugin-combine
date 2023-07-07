@@ -46,6 +46,14 @@
     },
     "./*": "./*"
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./*"
+      ]
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
