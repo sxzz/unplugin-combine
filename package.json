@@ -86,23 +86,23 @@
     }
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.5",
+    "@antfu/utils": "^0.7.6",
     "unplugin": "^1.4.0"
   },
   "devDependencies": {
     "@sxzz/eslint-config": "^3.4.0",
     "@sxzz/prettier-config": "^1.0.4",
-    "@types/node": "^18.17.5",
-    "bumpp": "^9.1.1",
+    "@types/node": "^18.17.6",
+    "bumpp": "^9.2.0",
     "esbuild": "^0.19.2",
     "eslint": "^8.47.0",
     "fast-glob": "^3.3.1",
-    "prettier": "^3.0.1",
+    "prettier": "^3.0.2",
     "rollup": "^3.28.0",
     "tsup": "^7.2.0",
     "typescript": "^5.1.6",
     "vite": "^4.4.9",
-    "vitest": "^0.34.1",
+    "vitest": "^0.34.2",
     "webpack": "^5.88.2"
   },
   "engines": {
