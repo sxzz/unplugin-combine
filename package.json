@@ -1,7 +1,7 @@
 {
   "name": "unplugin-combine",
   "version": "0.7.0",
-  "packageManager": "pnpm@8.6.12",
+  "packageManager": "pnpm@8.7.0",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "license": "MIT",
   "homepage": "https://github.com/sxzz/unplugin-combine#readme",
@@ -92,17 +92,17 @@
   "devDependencies": {
     "@sxzz/eslint-config": "^3.4.0",
     "@sxzz/prettier-config": "^1.0.4",
-    "@types/node": "^18.17.6",
+    "@types/node": "^18.17.12",
     "bumpp": "^9.2.0",
     "esbuild": "^0.19.2",
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "fast-glob": "^3.3.1",
     "prettier": "^3.0.2",
-    "rollup": "^3.28.0",
+    "rollup": "^3.28.1",
     "tsup": "^7.2.0",
-    "typescript": "^5.1.6",
+    "typescript": "^5.2.2",
     "vite": "^4.4.9",
-    "vitest": "^0.34.2",
+    "vitest": "^0.34.3",
     "webpack": "^5.88.2"
   },
   "engines": {
