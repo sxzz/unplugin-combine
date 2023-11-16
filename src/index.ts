@@ -22,7 +22,7 @@ function flatPlugins(plugins: OptionsPlugin): (Plugin | Unplugin<any>)[] {
 
 export function resolvePlugins<T extends PluginType>(
   plugins: OptionsPlugin,
-  type: T
+  type: T,
 ): Array<RemoveFalsy<PluginMap[T]>> {
   return flatPlugins(plugins)
     .filter((p): p is RemoveFalsy<Plugin | Unplugin<any>> => !!p)
@@ -36,7 +36,7 @@ export function resolvePlugins<T extends PluginType>(
 }
 
 export const createCombinePlugin = <UserOptions>(
-  factory: Factory<UserOptions>
+  factory: Factory<UserOptions>,
 ): UnpluginCombineInstance<UserOptions> => {
   return {
     get rollup() {

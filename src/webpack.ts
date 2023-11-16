@@ -3,7 +3,7 @@ import type { Compiler } from 'webpack'
 import type { Factory, UnpluginCombineInstance } from './types'
 
 export const getWebpackPlugin = <UserOptions>(
-  factory: Factory<UserOptions>
+  factory: Factory<UserOptions>,
 ): UnpluginCombineInstance<UserOptions>['webpack'] => {
   return (userOptions?: UserOptions) => {
     const { plugins } = factory(userOptions!, { framework: 'webpack' })

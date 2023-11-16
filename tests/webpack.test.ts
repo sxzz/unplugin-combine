@@ -27,7 +27,7 @@ test('webpack', async () => {
     ],
   })
   await new Promise<void>((resolve, reject) =>
-    compiler.run((err) => (err ? reject(err) : resolve()))
+    compiler.run((err) => (err ? reject(err) : resolve())),
   )
 
   expect(orders).toMatchInlineSnapshot(`

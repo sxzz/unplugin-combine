@@ -8,7 +8,7 @@ test('plugin', () => {
     createCombinePlugin(() => ({
       name: 'name',
       plugins,
-    })).plugins()
+    })).plugins(),
   ).toMatchInlineSnapshot(`
     [
       {
