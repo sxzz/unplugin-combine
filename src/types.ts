@@ -1,12 +1,19 @@
 import type { UnpluginInstance } from 'unplugin'
-import type { Configuration } from 'webpack'
+import type { Configuration as WebpackConfig } from 'webpack'
+import type { Configuration as RspackConfig } from '@rspack/core'
 import type { Plugin as RollupPlugin } from 'rollup'
 import type { Plugin as VitePlugin } from 'vite'
 import type { Plugin as EsbuildPlugin } from 'esbuild'
 
 export type { RollupPlugin, VitePlugin, EsbuildPlugin }
 
-export type WebpackPlugin = NonNullable<Configuration['plugins']> extends Array<
+export type WebpackPlugin = NonNullable<WebpackConfig['plugins']> extends Array<
+  infer T
+>
+  ? T
+  : never
+
+export type RspackPlugin = NonNullable<RspackConfig['plugins']> extends Array<
   infer T
 >
   ? T
@@ -17,6 +24,7 @@ export interface PluginMap {
   vite: VitePlugin
   esbuild: EsbuildPlugin
   webpack: WebpackPlugin
+  rspack: RspackPlugin
 }
 export type PluginType = keyof PluginMap
 export type Plugin = PluginMap[PluginType]
@@ -49,6 +57,7 @@ export interface CombineOptions {
 export interface UnpluginCombineInstance<UserOptions> {
   rollup: FactoryOutput<UserOptions, RollupPlugin[]>
   webpack: FactoryOutput<UserOptions, WebpackPlugin>
+  rspack: FactoryOutput<UserOptions, RspackPlugin>
   vite: FactoryOutput<UserOptions, VitePlugin[]>
   esbuild: FactoryOutput<UserOptions, EsbuildPlugin>
   raw: Factory<UserOptions>

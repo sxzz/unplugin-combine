@@ -3,6 +3,7 @@ import { getRollupPlugin } from './rollup'
 import { getVitePlugin } from './vite'
 import { getEsbuildPlugin } from './esbuild'
 import { getWebpackPlugin } from './webpack'
+import { getRspackPlugin } from './rspack'
 import { getPluginList } from './plugins'
 import type {
   Factory,
@@ -50,6 +51,9 @@ export const createCombinePlugin = <UserOptions>(
     },
     get webpack() {
       return getWebpackPlugin(factory)
+    },
+    get rspack() {
+      return getRspackPlugin(factory)
     },
     get raw() {
       return factory
