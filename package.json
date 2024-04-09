@@ -1,7 +1,7 @@
 {
   "name": "unplugin-combine",
   "version": "0.9.0",
-  "packageManager": "pnpm@8.10.5",
+  "packageManager": "pnpm@8.15.6",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "license": "MIT",
   "homepage": "https://github.com/sxzz/unplugin-combine#readme",
@@ -81,25 +81,25 @@
     }
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.6",
-    "unplugin": "^1.5.1"
+    "@antfu/utils": "^0.7.7",
+    "unplugin": "^1.10.1"
   },
   "devDependencies": {
     "@rspack/core": "^0.5.9",
-    "@sxzz/eslint-config": "^3.7.4",
-    "@sxzz/prettier-config": "^2.0.0",
-    "@types/node": "^20.9.2",
-    "bumpp": "^9.2.0",
-    "esbuild": "^0.19.6",
-    "eslint": "^8.54.0",
+    "@sxzz/eslint-config": "^3.9.0",
+    "@sxzz/prettier-config": "^2.0.1",
+    "@types/node": "^20.12.5",
+    "bumpp": "^9.4.0",
+    "esbuild": "^0.20.2",
+    "eslint": "^8.57.0",
     "fast-glob": "^3.3.2",
-    "prettier": "^3.1.0",
-    "rollup": "^4.5.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vitest": "^1.0.4",
-    "webpack": "^5.89.0"
+    "prettier": "^3.2.5",
+    "rollup": "^4.14.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.4",
+    "vite": "^5.2.8",
+    "vitest": "^1.4.0",
+    "webpack": "^5.91.0"
   },
   "engines": {
     "node": ">=16.14.0"

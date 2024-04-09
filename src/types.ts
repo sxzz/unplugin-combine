@@ -7,17 +7,11 @@ import type { Plugin as EsbuildPlugin } from 'esbuild'
 
 export type { RollupPlugin, VitePlugin, EsbuildPlugin }
 
-export type WebpackPlugin = NonNullable<WebpackConfig['plugins']> extends Array<
-  infer T
->
-  ? T
-  : never
+export type WebpackPlugin =
+  NonNullable<WebpackConfig['plugins']> extends Array<infer T> ? T : never
 
-export type RspackPlugin = NonNullable<RspackConfig['plugins']> extends Array<
-  infer T
->
-  ? T
-  : never
+export type RspackPlugin =
+  NonNullable<RspackConfig['plugins']> extends Array<infer T> ? T : never
 
 export interface PluginMap {
   rollup: RollupPlugin
