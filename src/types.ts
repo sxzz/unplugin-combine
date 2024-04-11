@@ -1,6 +1,9 @@
 import type { UnpluginInstance } from 'unplugin'
-import type { Configuration as WebpackConfig } from 'webpack'
-import type { Configuration as RspackConfig } from '@rspack/core'
+import type {
+  Compiler as WebpackCompiler,
+  WebpackPluginInstance,
+} from 'webpack'
+import type { RspackPluginFunction, RspackPluginInstance } from '@rspack/core'
 import type { Plugin as RollupPlugin } from 'rollup'
 import type { Plugin as VitePlugin } from 'vite'
 import type { Plugin as EsbuildPlugin } from 'esbuild'
@@ -8,10 +11,10 @@ import type { Plugin as EsbuildPlugin } from 'esbuild'
 export type { RollupPlugin, VitePlugin, EsbuildPlugin }
 
 export type WebpackPlugin =
-  NonNullable<WebpackConfig['plugins']> extends Array<infer T> ? T : never
+  | ((this: WebpackCompiler, compiler: WebpackCompiler) => void)
+  | WebpackPluginInstance
 
-export type RspackPlugin =
-  NonNullable<RspackConfig['plugins']> extends Array<infer T> ? T : never
+export type RspackPlugin = RspackPluginInstance | RspackPluginFunction
 
 export interface PluginMap {
   rollup: RollupPlugin
