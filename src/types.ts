@@ -5,6 +5,7 @@ import type {
 } from 'webpack'
 import type { RspackPluginFunction, RspackPluginInstance } from '@rspack/core'
 import type { Plugin as RollupPlugin } from 'rollup'
+import type { Plugin as RolldownPlugin } from 'rolldown'
 import type { Plugin as VitePlugin } from 'vite'
 import type { Plugin as EsbuildPlugin } from 'esbuild'
 
@@ -18,6 +19,7 @@ export type RspackPlugin = RspackPluginInstance | RspackPluginFunction
 
 export interface PluginMap {
   rollup: RollupPlugin
+  rolldown: RolldownPlugin
   vite: VitePlugin
   esbuild: EsbuildPlugin
   webpack: WebpackPlugin
@@ -53,6 +55,7 @@ export interface CombineOptions {
 
 export interface UnpluginCombineInstance<UserOptions> {
   rollup: FactoryOutput<UserOptions, RollupPlugin[]>
+  rolldown: FactoryOutput<UserOptions, RolldownPlugin[]>
   webpack: FactoryOutput<UserOptions, WebpackPlugin>
   rspack: FactoryOutput<UserOptions, RspackPlugin>
   vite: FactoryOutput<UserOptions, VitePlugin[]>

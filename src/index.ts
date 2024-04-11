@@ -5,6 +5,7 @@ import { getEsbuildPlugin } from './esbuild'
 import { getWebpackPlugin } from './webpack'
 import { getRspackPlugin } from './rspack'
 import { getPluginList } from './plugins'
+import { getRolldownPlugin } from './rolldown'
 import type {
   Factory,
   OptionsPlugin,
@@ -42,6 +43,9 @@ export const createCombinePlugin = <UserOptions>(
   return {
     get rollup() {
       return getRollupPlugin(factory)
+    },
+    get rolldown() {
+      return getRolldownPlugin(factory)
     },
     get vite() {
       return getVitePlugin(factory)
