@@ -7,9 +7,11 @@ Unified plugin that combines other plugins into one plugin.
 Currently supports:
 
 - [Vite](https://vitejs.dev/)
-- [Rollup 3](https://rollupjs.org/)
-  - For Rollup 2, please use 0.2.x version
+- [Rollup](https://rollupjs.org/)
+  - For Rollup <= 2, please use 0.2.x version
+- [Rolldown](https://rolldown.rs/)
 - [Webpack](https://webpack.js.org/)
+- [Rspack](https://rspack.dev/)
 - [esbuild](https://esbuild.github.io/)
 
 ## Install
@@ -36,7 +38,9 @@ export const unplugin = createCombinePlugin((userOptions: UserOptions = {}) => {
 
 export const vitePlugin = unplugin.vite
 export const rollupPlugin = unplugin.rollup
+export const rolldownPlugin = unplugin.rolldown
 export const webpackPlugin = unplugin.webpack
+export const rspackPlugin = unplugin.rspack
 export const esbuildPlugin = unplugin.esbuild
 ```
 
@@ -83,6 +87,19 @@ module.exports = {
 }
 ```
 
+###### Rspack
+
+```ts
+// rspack.config.js
+module.exports = {
+  plugins: [
+    require('./unplugin-feature').rspack({
+      /* options */
+    }),
+  ],
+}
+```
+
 ###### esbuild
 
 ```ts
@@ -107,4 +124,4 @@ build({
 
 ## License
 
-[MIT](./LICENSE) License © 2022 [三咲智子](https://github.com/sxzz)
+[MIT](./LICENSE) License © 2022-PRESENT [三咲智子](https://github.com/sxzz)
