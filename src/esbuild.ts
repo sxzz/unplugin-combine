@@ -9,8 +9,6 @@ export const getEsbuildPlugin = <UserOptions>(
     return {
       name,
       setup(build) {
-        // TODO: supports with esbuild-plugin-transform
-
         for (const plugin of resolvePlugins(plugins, 'esbuild')) {
           plugin.setup(build)
         }
