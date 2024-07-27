@@ -31,7 +31,7 @@ export type RemoveFalsy<T> = Exclude<T, false | '' | 0 | null | undefined>
 
 export type Factory<UserOptions> = (
   userOptions: UserOptions,
-  meta: { framework: PluginType },
+  meta: { framework?: PluginType },
 ) => CombineOptions
 export type FactoryOutput<UserOptions, Return> = [never] extends UserOptions
   ? () => Return
