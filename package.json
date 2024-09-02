@@ -89,26 +89,26 @@
     }
   },
   "dependencies": {
-    "@antfu/utils": "^0.7.7",
-    "unplugin": "^1.10.1"
+    "@antfu/utils": "^0.7.10",
+    "unplugin": "^1.12.3"
   },
   "devDependencies": {
     "@rspack/core": "^1.0.0",
     "@sxzz/eslint-config": "^4.1.0",
-    "@sxzz/prettier-config": "^2.0.1",
-    "@types/node": "^20.12.7",
-    "bumpp": "^9.4.0",
-    "esbuild": "^0.20.2",
-    "eslint": "^9.0.0",
+    "@sxzz/prettier-config": "^2.0.2",
+    "@types/node": "^20.16.3",
+    "bumpp": "^9.5.2",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.9.1",
     "fast-glob": "^3.3.2",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.3",
     "rolldown": "nightly",
-    "rollup": "^4.14.1",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.8",
-    "vitest": "^2.0.3",
-    "webpack": "^5.91.0"
+    "rollup": "^4.21.2",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vitest": "^2.0.5",
+    "webpack": "^5.94.0"
   },
   "engines": {
     "node": ">=16.14.0"
