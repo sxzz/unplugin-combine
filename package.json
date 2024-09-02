@@ -94,9 +94,9 @@
   },
   "devDependencies": {
     "@rspack/core": "^1.0.0",
-    "@sxzz/eslint-config": "^4.1.0",
+    "@sxzz/eslint-config": "^4.1.1",
     "@sxzz/prettier-config": "^2.0.2",
-    "@types/node": "^20.16.3",
+    "@types/node": "^22.5.2",
     "bumpp": "^9.5.2",
     "esbuild": "^0.23.1",
     "eslint": "^9.9.1",
