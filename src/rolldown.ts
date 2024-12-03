@@ -1,5 +1,5 @@
-import { resolvePlugins } from './index'
 import type { Factory, UnpluginCombineInstance } from './types'
+import { resolvePlugins } from './index'
 
 export const getRolldownPlugin = <UserOptions>(
   factory: Factory<UserOptions>,

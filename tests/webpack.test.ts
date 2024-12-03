@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { expect, test } from 'vitest'
 import webpack from 'webpack'
-import { type OptionsPlugin, createCombinePlugin } from '../src'
+import { createCombinePlugin, type OptionsPlugin } from '../src'
 
 const orders: string[] = []
 

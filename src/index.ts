@@ -1,11 +1,11 @@
 import { toArray } from '@antfu/utils'
-import { getRollupPlugin } from './rollup'
-import { getVitePlugin } from './vite'
 import { getEsbuildPlugin } from './esbuild'
-import { getWebpackPlugin } from './webpack'
-import { getRspackPlugin } from './rspack'
 import { getPluginList } from './plugins'
 import { getRolldownPlugin } from './rolldown'
+import { getRollupPlugin } from './rollup'
+import { getRspackPlugin } from './rspack'
+import { getVitePlugin } from './vite'
+import { getWebpackPlugin } from './webpack'
 import type {
   Factory,
   OptionsPlugin,

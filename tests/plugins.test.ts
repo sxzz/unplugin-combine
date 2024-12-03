@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { type OptionsPlugin, createCombinePlugin } from '../src'
+import { createCombinePlugin, type OptionsPlugin } from '../src'
 
 const plugins: OptionsPlugin[] = [{ name: `1` }, { name: `2` }, { name: `3` }]
 

@@ -1,15 +1,15 @@
+import type { RspackPluginFunction, RspackPluginInstance } from '@rspack/core'
+import type { Plugin as EsbuildPlugin } from 'esbuild'
+import type { Plugin as RolldownPlugin } from 'rolldown'
+import type { Plugin as RollupPlugin } from 'rollup'
 import type { UnpluginInstance } from 'unplugin'
+import type { Plugin as VitePlugin } from 'vite'
 import type {
   Compiler as WebpackCompiler,
   WebpackPluginInstance,
 } from 'webpack'
-import type { RspackPluginFunction, RspackPluginInstance } from '@rspack/core'
-import type { Plugin as RollupPlugin } from 'rollup'
-import type { Plugin as RolldownPlugin } from 'rolldown'
-import type { Plugin as VitePlugin } from 'vite'
-import type { Plugin as EsbuildPlugin } from 'esbuild'
 
-export type { RollupPlugin, VitePlugin, EsbuildPlugin }
+export type { EsbuildPlugin, RollupPlugin, VitePlugin }
 
 export type WebpackPlugin =
   | ((this: WebpackCompiler, compiler: WebpackCompiler) => void)

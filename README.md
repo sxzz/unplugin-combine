@@ -25,7 +25,7 @@ npm i unplugin-combine
 Similar to [unplugin](https://github.com/unjs/unplugin).
 
 ```ts
-import { type OptionsPlugin, createCombinePlugin } from 'unplugin-combine'
+import { createCombinePlugin, type OptionsPlugin } from 'unplugin-combine'
 
 export const unplugin = createCombinePlugin((userOptions: UserOptions = {}) => {
   const plugins: OptionsPlugin[] = [plugin1, plugin2, plugin3]

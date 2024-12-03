@@ -1,6 +1,6 @@
+import type { Factory, UnpluginCombineInstance } from './types'
 import { resolvePlugins } from '.'
 import type { Compiler } from '@rspack/core'
-import type { Factory, UnpluginCombineInstance } from './types'
 
 export const getRspackPlugin = <UserOptions>(
   factory: Factory<UserOptions>,

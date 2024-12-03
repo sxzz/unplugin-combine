@@ -1,7 +1,7 @@
 import path from 'node:path'
-import { expect, test } from 'vitest'
 import { build } from 'esbuild'
-import { type OptionsPlugin, createCombinePlugin } from '../src'
+import { expect, test } from 'vitest'
+import { createCombinePlugin, type OptionsPlugin } from '../src'
 
 const orders: string[] = []
 
