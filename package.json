@@ -96,22 +96,22 @@
     "@antfu/utils": "^0.7.10"
   },
   "devDependencies": {
-    "@rspack/core": "^1.0.0",
-    "@sxzz/eslint-config": "^4.1.1",
+    "@rspack/core": "^1.1.6",
+    "@sxzz/eslint-config": "^4.5.1",
     "@sxzz/prettier-config": "^2.0.2",
-    "@types/node": "^22.5.2",
-    "bumpp": "^9.5.2",
-    "esbuild": "^0.23.1",
-    "eslint": "^9.9.1",
+    "@types/node": "^22.10.2",
+    "bumpp": "^9.9.0",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.16.0",
     "fast-glob": "^3.3.2",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "rolldown": "nightly",
-    "rollup": "^4.21.2",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.2",
-    "vitest": "^2.0.5",
-    "webpack": "^5.94.0"
+    "rollup": "^4.28.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.3",
+    "vitest": "^2.1.8",
+    "webpack": "^5.97.1"
   },
   "engines": {
     "node": ">=16.14.0"
