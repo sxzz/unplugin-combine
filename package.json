@@ -3,6 +3,7 @@
   "version": "1.1.0",
   "packageManager": "pnpm@9.15.4",
   "description": "Unified plugin that combines other plugins into one plugin.",
+  "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/sxzz/unplugin-combine#readme",
   "bugs": {
@@ -15,29 +16,29 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./vite": {
-      "require": "./dist/vite.js",
-      "import": "./dist/vite.mjs"
+      "require": "./dist/vite.cjs",
+      "import": "./dist/vite.js"
     },
     "./webpack": {
-      "require": "./dist/webpack.js",
-      "import": "./dist/webpack.mjs"
+      "require": "./dist/webpack.cjs",
+      "import": "./dist/webpack.js"
     },
     "./rollup": {
-      "require": "./dist/rollup.js",
-      "import": "./dist/rollup.mjs"
+      "require": "./dist/rollup.cjs",
+      "import": "./dist/rollup.js"
     },
     "./esbuild": {
-      "require": "./dist/esbuild.js",
-      "import": "./dist/esbuild.mjs"
+      "require": "./dist/esbuild.cjs",
+      "import": "./dist/esbuild.js"
     },
     "./*": "./*"
   },
