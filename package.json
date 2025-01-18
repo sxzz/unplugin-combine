@@ -92,10 +92,9 @@
       "optional": true
     }
   },
-  "dependencies": {
-    "@antfu/utils": "^8.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@antfu/utils": "^8.1.0",
     "@rspack/core": "^1.1.8",
     "@sxzz/eslint-config": "^4.6.0",
     "@sxzz/prettier-config": "^2.0.2",
