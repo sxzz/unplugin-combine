@@ -1,11 +1,11 @@
 import type { Factory, UnpluginCombineInstance } from './types'
 import { resolvePlugins } from './index'
 
-export const getRollupPlugin = <UserOptions>(
+export function getRollupPlugin<UserOptions>(
   factory: Factory<UserOptions>,
-): UnpluginCombineInstance<UserOptions>['rollup'] => {
-  return (userOptions?: UserOptions) => {
+): UnpluginCombineInstance<UserOptions>['rollup'] {
+  return async (userOptions?: UserOptions) => {
     const { plugins } = factory(userOptions!, { framework: 'rollup' })
-    return resolvePlugins(plugins, 'rollup')
+    return resolvePlugins(await plugins, 'rollup')
   }
 }

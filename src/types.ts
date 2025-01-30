@@ -45,7 +45,11 @@ export type Unplugin<UserOptions> = {
     | UnpluginCombineInstance<any>
   options?: UserOptions
 }
-export type OptionsPlugin = Plugin | Unplugin<any> | OptionsPlugin[]
+export type Awaitable<T> = T | Promise<T>
+export type OptionsPlugin =
+  | Awaitable<Plugin>
+  | Unplugin<any>
+  | Awaitable<OptionsPlugin[]>
 export interface CombineOptions {
   name: string
   /** vite only */
@@ -54,11 +58,11 @@ export interface CombineOptions {
 }
 
 export interface UnpluginCombineInstance<UserOptions> {
-  rollup: FactoryOutput<UserOptions, RollupPlugin[]>
-  rolldown: FactoryOutput<UserOptions, RolldownPlugin[]>
+  rollup: FactoryOutput<UserOptions, Promise<RollupPlugin[]>>
+  rolldown: FactoryOutput<UserOptions, Promise<RolldownPlugin[]>>
   webpack: FactoryOutput<UserOptions, WebpackPlugin>
   rspack: FactoryOutput<UserOptions, RspackPlugin>
-  vite: FactoryOutput<UserOptions, VitePlugin[]>
+  vite: FactoryOutput<UserOptions, Promise<VitePlugin[]>>
   esbuild: FactoryOutput<UserOptions, EsbuildPlugin>
   raw: Factory<UserOptions>
   plugins: FactoryOutput<UserOptions, OptionsPlugin>

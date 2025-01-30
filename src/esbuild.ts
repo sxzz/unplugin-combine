@@ -8,8 +8,8 @@ export const getEsbuildPlugin = <UserOptions>(
     const { name, plugins } = factory(userOptions!, { framework: 'esbuild' })
     return {
       name,
-      setup(build) {
-        for (const plugin of resolvePlugins(plugins, 'esbuild')) {
+      async setup(build) {
+        for (const plugin of resolvePlugins(await plugins, 'esbuild')) {
           plugin.setup(build)
         }
       },

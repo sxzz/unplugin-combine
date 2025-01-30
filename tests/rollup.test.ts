@@ -5,7 +5,7 @@ import { createCombinePlugin, type OptionsPlugin } from '../src'
 
 const orders: string[] = []
 
-const plugins: (OptionsPlugin | OptionsPlugin[])[] = [
+const plugins: OptionsPlugin[] = [
   {
     name: '1',
     buildStart: () => (orders.push('1'), undefined),

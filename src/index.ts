@@ -1,6 +1,5 @@
 import { toArray } from '@antfu/utils'
 import { getEsbuildPlugin } from './esbuild'
-import { getPluginList } from './plugins'
 import { getRolldownPlugin } from './rolldown'
 import { getRollupPlugin } from './rollup'
 import { getRspackPlugin } from './rspack'
@@ -65,5 +64,14 @@ export const createCombinePlugin = <UserOptions>(
     get plugins() {
       return getPluginList(factory)
     },
+  }
+}
+
+export function getPluginList<UserOptions>(
+  factory: Factory<UserOptions>,
+): UnpluginCombineInstance<UserOptions>['plugins'] {
+  return (userOptions?: UserOptions) => {
+    const { plugins } = factory(userOptions!, {})
+    return plugins
   }
 }
