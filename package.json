@@ -99,7 +99,7 @@
   "devDependencies": {
     "@antfu/utils": "^9.1.0",
     "@rspack/core": "^1.2.7",
-    "@sxzz/eslint-config": "^5.2.0",
+    "@sxzz/eslint-config": "^6.2.0",
     "@sxzz/prettier-config": "^2.2.0",
     "@types/node": "^22.13.9",
     "bumpp": "^10.0.3",
