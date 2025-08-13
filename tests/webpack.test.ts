@@ -28,7 +28,7 @@ test.each([true, false] as const)('webpack async = %s', async (async) => {
     ],
   })
   await new Promise<void>((resolve, reject) =>
-    compiler.run((err) => (err ? reject(err) : resolve())),
+    compiler!.run((err) => (err ? reject(err) : resolve())),
   )
 
   expect(orders).toEqual(
