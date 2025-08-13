@@ -1,7 +1,7 @@
 {
   "name": "unplugin-combine",
   "version": "2.1.0",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.14.0",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "type": "module",
   "license": "MIT",
@@ -83,22 +83,22 @@
   },
   "devDependencies": {
     "@antfu/utils": "^9.2.0",
-    "@rspack/core": "^1.4.10",
-    "@sxzz/eslint-config": "^7.1.1",
+    "@rspack/core": "^1.4.11",
+    "@sxzz/eslint-config": "^7.1.2",
     "@sxzz/prettier-config": "^2.2.3",
-    "@types/node": "^24.1.0",
-    "bumpp": "^10.2.1",
-    "esbuild": "^0.25.8",
-    "eslint": "^9.32.0",
+    "@types/node": "^24.2.1",
+    "bumpp": "^10.2.3",
+    "esbuild": "^0.25.9",
+    "eslint": "^9.33.0",
     "fast-glob": "^3.3.3",
     "prettier": "^3.6.2",
-    "rolldown": "^1.0.0-beta.29",
-    "rollup": "^4.46.1",
-    "tsdown": "^0.13.0",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.6",
+    "rolldown": "^1.0.0-beta.32",
+    "rollup": "^4.46.2",
+    "tsdown": "^0.14.1",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.2",
     "vitest": "^3.2.4",
-    "webpack": "^5.101.0"
+    "webpack": "^5.101.1"
   },
   "engines": {
     "node": ">=20.18.0"
