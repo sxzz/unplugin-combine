@@ -13,6 +13,14 @@ export function getWebpackPlugin<UserOptions>(
         compiler.hooks.beforeRun.tapPromise(name, async () => {
           executePlugins(compiler, framework, await plugins)
         })
+
+        /**
+         * `beforeRun` hook is only triggered when calling compiler.run() (rspack build), and will not be executed in watch mode (rspack dev). Use `watchRun` hook in watch mode.
+         */
+        if (framework === 'rspack')
+          compiler.hooks.watchRun.tapPromise(name, async () => {
+            executePlugins(compiler, framework, await plugins)
+          })
       } else {
         executePlugins(compiler, framework, plugins)
       }
