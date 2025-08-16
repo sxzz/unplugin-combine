@@ -1,6 +1,6 @@
 {
   "name": "unplugin-combine",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "packageManager": "pnpm@10.14.0",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "type": "module",
