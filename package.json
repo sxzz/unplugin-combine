@@ -46,7 +46,7 @@
     "build": "tsdown",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "release": "bumpp && pnpm publish",
+    "release": "bumpp",
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
@@ -86,7 +86,7 @@
     "@rspack/core": "^1.4.11",
     "@sxzz/eslint-config": "^7.1.2",
     "@sxzz/prettier-config": "^2.2.3",
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "bumpp": "^10.2.3",
     "esbuild": "^0.25.9",
     "eslint": "^9.33.0",
@@ -98,7 +98,7 @@
     "typescript": "^5.9.2",
     "vite": "^7.1.2",
     "vitest": "^3.2.4",
-    "webpack": "^5.101.1"
+    "webpack": "^5.101.2"
   },
   "engines": {
     "node": ">=20.18.0"
