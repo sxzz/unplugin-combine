@@ -1,7 +1,7 @@
 {
   "name": "unplugin-combine",
   "version": "2.1.2",
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.18.1",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "type": "module",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/sxzz/unplugin-combine.git"
   },
-  "author": "三咲智子 Kevin Deng <sxzz@sxzz.moe>",
+  "author": "Kevin Deng <sxzz@sxzz.moe>",
   "funding": "https://github.com/sponsors/sxzz",
   "files": [
     "dist"
@@ -23,11 +23,13 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
+    "./esbuild": "./dist/esbuild.js",
+    "./rolldown": "./dist/rolldown.js",
+    "./rollup": "./dist/rollup.js",
+    "./rspack": "./dist/rspack.js",
     "./vite": "./dist/vite.js",
     "./webpack": "./dist/webpack.js",
-    "./rollup": "./dist/rollup.js",
-    "./esbuild": "./dist/esbuild.js",
-    "./*": "./*"
+    "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
@@ -82,26 +84,26 @@
     }
   },
   "devDependencies": {
-    "@antfu/utils": "^9.2.0",
-    "@rspack/core": "^1.4.11",
-    "@sxzz/eslint-config": "^7.1.2",
-    "@sxzz/prettier-config": "^2.2.3",
-    "@types/node": "^24.3.0",
-    "bumpp": "^10.2.3",
-    "esbuild": "^0.25.9",
-    "eslint": "^9.33.0",
+    "@antfu/utils": "^9.3.0",
+    "@rspack/core": "^1.5.8",
+    "@sxzz/eslint-config": "^7.2.7",
+    "@sxzz/prettier-config": "^2.2.4",
+    "@types/node": "^24.7.0",
+    "bumpp": "^10.3.1",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.37.0",
     "fast-glob": "^3.3.3",
     "prettier": "^3.6.2",
-    "rolldown": "^1.0.0-beta.32",
-    "rollup": "^4.46.2",
-    "tsdown": "^0.14.1",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.2",
+    "rolldown": "^1.0.0-beta.41",
+    "rollup": "^4.52.4",
+    "tsdown": "^0.15.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.9",
     "vitest": "^3.2.4",
-    "webpack": "^5.101.2"
+    "webpack": "^5.102.0"
   },
   "engines": {
-    "node": ">=20.18.0"
+    "node": ">=20.19.0"
   },
   "prettier": "@sxzz/prettier-config"
 }

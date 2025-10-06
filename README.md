@@ -1,6 +1,8 @@
-# unplugin-combine [![npm](https://img.shields.io/npm/v/unplugin-combine.svg)](https://npmjs.com/package/unplugin-combine)
+# unplugin-combine
 
-[![Unit Test](https://github.com/sxzz/unplugin-combine/actions/workflows/unit-test.yml/badge.svg)](https://github.com/sxzz/unplugin-combine/actions/workflows/unit-test.yml)
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Unit Test][unit-test-src]][unit-test-href]
 
 Unified plugin that combines other plugins into one plugin.
 
@@ -8,7 +10,6 @@ Currently supports:
 
 - [Vite](https://vitejs.dev/)
 - [Rollup](https://rollupjs.org/)
-  - For Rollup <= 2, please use 0.2.x version
 - [Rolldown](https://rolldown.rs/)
 - [Webpack](https://webpack.js.org/)
 - [Rspack](https://rspack.dev/)
@@ -124,4 +125,13 @@ build({
 
 ## License
 
-[MIT](./LICENSE) License © 2022-PRESENT [三咲智子](https://github.com/sxzz)
+[MIT](./LICENSE) License © 2022-PRESENT [Kevin Deng](https://github.com/sxzz)
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/unplugin-combine.svg
+[npm-version-href]: https://npmjs.com/package/unplugin-combine
+[npm-downloads-src]: https://img.shields.io/npm/dm/unplugin-combine
+[npm-downloads-href]: https://www.npmcharts.com/compare/unplugin-combine?interval=30
+[unit-test-src]: https://github.com/sxzz/unplugin-combine/actions/workflows/unit-test.yml/badge.svg
+[unit-test-href]: https://github.com/sxzz/unplugin-combine/actions/workflows/unit-test.yml
