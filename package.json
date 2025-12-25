@@ -55,7 +55,7 @@
     "prepublishOnly": "pnpm run build"
   },
   "peerDependencies": {
-    "@rspack/core": "*",
+    "@rspack/core": "^1.0.0",
     "esbuild": ">=0.13",
     "rolldown": "*",
     "rollup": "^3.2.0 || ^4.0.0",
