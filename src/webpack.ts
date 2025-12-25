@@ -1,5 +1,5 @@
-import type { Factory, OptionsPlugin, UnpluginCombineInstance } from './types'
 import { resolvePlugins } from '.'
+import type { Factory, OptionsPlugin, UnpluginCombineInstance } from './types'
 import type { Compiler } from 'webpack'
 
 export function getWebpackPlugin<UserOptions>(
