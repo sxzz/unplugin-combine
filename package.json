@@ -1,7 +1,7 @@
 {
   "name": "unplugin-combine",
   "type": "module",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "packageManager": "pnpm@10.33.2",
   "description": "Unified plugin that combines other plugins into one plugin.",
   "author": "Kevin Deng <sxzz@sxzz.moe>",
