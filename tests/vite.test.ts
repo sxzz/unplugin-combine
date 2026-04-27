@@ -14,16 +14,16 @@ test.each([true, false] as const)('vite async = %s', async (async) => {
       name: `${prefix}1`,
       // useless
       enforce: 'pre',
-      transform: () => (orders.push(`${prefix}-pre`), undefined),
+      buildStart: () => (orders.push(`${prefix}-pre`), undefined),
     },
     {
       name: `${prefix}2`,
-      transform: () => (orders.push(`${prefix}-none`), undefined),
+      buildStart: () => (orders.push(`${prefix}-none`), undefined),
     },
     {
       name: `${prefix}3`,
       enforce: 'post',
-      transform: () => (orders.push(`${prefix}-post`), undefined),
+      buildStart: () => (orders.push(`${prefix}-post`), undefined),
     },
   ]
 
@@ -39,13 +39,13 @@ test.each([true, false] as const)('vite async = %s', async (async) => {
       {
         name: 'PRE',
         enforce: 'pre',
-        transform: () => (orders.push('PRE'), undefined),
+        buildStart: () => (orders.push('PRE'), undefined),
       },
 
       {
         name: 'POST',
         enforce: 'post',
-        transform: () => (orders.push('POST'), undefined),
+        buildStart: () => (orders.push('POST'), undefined),
       },
 
       createCombinePlugin(() => ({
