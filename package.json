@@ -86,7 +86,7 @@
   },
   "devDependencies": {
     "@antfu/utils": "^9.3.0",
-    "@rspack/core": "^1.7.3",
+    "@rspack/core": "^2.0.0",
     "@sxzz/eslint-config": "^7.5.0",
     "@sxzz/prettier-config": "^2.2.6",
     "@types/node": "^25.0.10",
